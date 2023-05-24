@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+function App(props) {
+  const [msj, setMsj] = useState("");
+
+  const handleClick = () => {
+    setMsj("(from changed state)");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        textAlign: "center",
+        maxWidth: "950px",
+        margin: "0 auto",
+        border: "1px solid #e6e6e6",
+        padding: "40px 25px",
+        marginTop: "50px",
+      }}
+    >
+      <h1>
+        Hello {props.name} {msj}!
+      </h1>
+      <button onClick={handleClick}>Change State</button>
     </div>
   );
 }
